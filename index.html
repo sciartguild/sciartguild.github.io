@@ -1,12 +1,7 @@
-<!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<!-- Google tag (gtag.js) -->
+<head>
+    <!-- Google tag (gtag.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-W83VMR936B"></script>
 		<script>
   		window.dataLayer = window.dataLayer || [];
@@ -16,68 +11,203 @@
   		gtag('config', 'G-W83VMR936B');
 		</script>
 
-		<link rel="icon" type="image/png" href="assets/css/images/favicon.png"/>
-		
-		<title>Sciverse Labs</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			<div id="bg"></div>
-			<div id="overlay"></div>
-			<div id="main">
 
-				<!-- Header -->
-					<header id="header">
-						<h1>Sciverse Labs</h1>
-						<p>Scientific works of today as timeless collectibles</p>
-						
-						
-						
-						<!----
-						<iframe id="iframe" width="1000px" scrolling="auto" height="450px" 
-        				frameborder="1" src="https://oncyber.io/work-in-progress"
-        				style="border: 0px none #ffffff;" name="national-campaign" 
-        				marginheight="0px" marginwidth="0px">
-						</iframe>
-						-->
-						
-						<h3>						
-							<nav><ul>Dive into this wormhole 								
-								<li><a target="_blank" rel="noopener noreferrer" href="https://sciverselabs.xyz/museum/" class="icon brands fa-blog"><span class="label">Museum</span></a></li>
-							 to enter the metaverse</ul></nav>
-							</h3>
-						<br></br>
-						
-						<h3>The first contemporary <a href="https://sciverselabs.xyz/museum/" target="_blank"><b>Science Museum</b></a> in the metaverse. The museum displays select thematic pieces from the curated <a href="https://opensea.io/sciverse/created" target="_blank"><b>Sciverse Collection</b></a></h3>
-						<br></br>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+    <title>Sciverse Labs</title>
+    
+    <style>
 
-						<h3>The collectibles can also be traded right within the <a href="https://sciverselabs.xyz/marketplace/" target="_blank"><b>Sciverse Marketplace</b></a> without relying on any third party marketplace.</h3>
-						<br></br>
+    /* Custom styles for checkboxes */
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        vertical-align: middle;
+    }
 
-						
-						<h3>How to contribute to the Sciverse collection? If you have a scientific work (published in 2000 or later) with an unpublished representative media (image/ video/ illustration), you can submit it to us <a href="https://forms.gle/e9nPAwnMwGohj7Wy9" target="_blank"><b>here</b></a>. We periodically review new works and add it to our collection. Follow us on twitter for updates!</h3>
-						<nav>
-							<ul>
-								<li><a target="_blank" rel="noopener noreferrer" href="https://twitter.com/SciverseLabs" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							</ul>
-						</nav>
-					</header>
+    /* Styling label text */
+    label {
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+    }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<span class="copyright">&copy; 2023 Sciverse Labs Limited, London, UK.</span>
-					</footer>
+        body, html {
+            height: 100%; /* Full height */
+            margin: 0;
+            font-family: "Courier New", Courier, monospace;
+            color: white; /* Set text color to white */
+            background: url('background.mp4') no-repeat center center fixed; 
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+            background-size: cover; /* Cover the entire page */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-image: url('background.mp4'); /* Smaller or optimized image for mobile */
+            }
+        }
+
+        
+
+        .content {
+            visibility: hidden; /* Initially hide the content */
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker and more transparent content box */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        a {
+            color: #ffffff; /* Links in white */
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scrolling if needed */
+            background-color: rgba(0,0,0,0.4); /* Black background with opacity */
+        }
+
+        .modal-content {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark background for modal */
+            color: white;
+            margin: 5% auto; /* Margin top and centered horizontally */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #closeModal {
+            background-color: #742bbd;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px 0;
+            border: none;
+            cursor: pointer;
+        }
+        
+
+        #closeModal[disabled] {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        /* Video background */
+        video#bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -100;
+            object-fit: cover; /* Ensure cover of the entire browser */
+        }
+
+        .content {
+            visibility: hidden; /* Initially hide the content */
+            max-width: 1000px;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker and more transparent content box */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .twitter-link {
+            margin-top: 20px; /* Space between content and link */
+        }
+
+
+        .twitter-icon {
+        width: 32px;
+        height: 32px;
+        display: inline-block; /* Ensures the icon is always treated as an inline element with block properties */
+}
+
+    @media (max-width: 768px) {
+    .twitter-link {
+        text-align: center; /* Centers the link in mobile views */
+        margin-top: 10px; /* Ensures there is space above for clarity */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Video as Background -->
+    <video id="bgVideo" autoplay muted loop>
+        <source src="background.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <p>Sciverse Labs and the associated products pose risks, including but not limited to smart contract vulnerabilities and intrinsic risks associated with trading volatile non-fungible assets.</p>
+            <p>By proceeding, you affirmatively acknowledge understanding the experimental nature of Sciverse Labs and their products, the reliance on external data feeds, centralized servers, and external smart contracts and the potential for total loss of funds. This acknowledgment does not constitute investment advice or a recommendation to engage in any investment. We make no representations regarding the legality of access or participation in Sciverse Labs in your jurisdiction. You are responsible for compliance with local laws and regulations.</p>
+            <p>By accessing or using the Sciverse Labs and their products, you represent and warrant that you are not a US Person as defined in Regulation S under the United States Securities Act of 1933, as amended. If you are a US Person, you are not authorized to access or use our platform, and any such access or use is strictly prohibited. Participation in Sciverse Labs is voluntary and users acknowledge the potential risks, indemnifying Sciverse Labs from any related claims or liabilities. It is your responsibility to ensure that you are not accessing the services from a restricted country, and we encourage you to seek legal advice before using the services.</p>
+        </p>
+            <input type="checkbox" id="agreeCheck"> I have read, understand, and accept the terms and risks associated with 'Sciverse Labs.' I affirm that I am not a resident of the United States.
+            <button id="closeModal" disabled>Continue</button>
+        </div>
+    </div>
+    
+    <div class="content">
+        <h2>Sciverse Labs</h2>
+        <h3>Scientific works of today as timeless collectibles</h3>
+        <p>The first contemporary Science Museum in the metaverse. The museum displays select thematic pieces from the curated Sciverse Collection. Sciverse Labs selects the best contemporary scientific works and mints its representative art work (microscopic images or videos/ piece of data/ abstract illustration) as a collectible work of SciArt. The collectibles can also be traded within the Sciverse Marketplace without relying on any third party marketplace.</p>
+        <a href="https://sciverselabs.xyz/museum/" target="_blank">🏛️ <b>Sciverse Museum</b></a>
+        <a href="https://sciverselabs.xyz/marketplace/" target="_blank">📈 <b>Sciverse Marketplace</b></a>
+        <a href="https://medium.com/@enterthesciverse/the-hitchhikers-guide-to-the-sciverse-8835eaa7d603" target="_blank">📖 <b>The Sciverse Vision</b></a>
+        <a href="https://opensea.io/collection/sciverse-genesis" target="_blank">🦖 <b>Genesis Collection</b></a>
+        <a href="https://forms.gle/e9nPAwnMwGohj7Wy9" target="_blank">📝 <b>Submit Your Science/ SciArt</b></a>
+
+    </div>
+
+    <div class="twitter-link">
+        <a href="https://x.com/SciverseLabs" target="_blank">
+            <img src="twitter-icon.png" alt="Follow us on Twitter" class="twitter-icon">
+        </a>
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('myModal').style.display = "block";
+        }
+
+        document.getElementById('agreeCheck').onclick = function() {
+            document.getElementById('closeModal').disabled = !this.checked;
+        };
+
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('myModal').style.display = "none";
+            document.querySelector('.content').style.visibility = 'visible'; // Show the main content only after agreeing to the terms
+        };
+    </script>
+</body>
 </html>
